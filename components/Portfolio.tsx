@@ -17,18 +17,18 @@ const photoProjects = [
   },
   {
     image: "/images/equipo-trabajo.jpg",
-    title: "Sesion Corporativa",
-    category: "Fotografia",
+    title: "Sesión Corporativa",
+    category: "Fotografía",
   },
   {
     image: "/images/workspace.png",
-    title: "Produccion Audiovisual",
-    category: "Produccion",
+    title: "Producción Audiovisual",
+    category: "Producción",
   },
   {
     image: "/images/fundador-camara.jpg",
     title: "Contenido para Redes",
-    category: "Fotografia",
+    category: "Fotografía",
   },
   {
     image: "/images/miembro-laptop.png",
@@ -125,7 +125,7 @@ export default function Portfolio() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">
-                Videografia
+                Videografía
               </span>
               <div className="flex-1 h-px bg-neutral-200" />
             </div>
@@ -212,7 +212,7 @@ export default function Portfolio() {
                   </h3>
                   <p className="mt-3 text-sm lg:text-base text-white/50 leading-relaxed">
                     Comercial audiovisual de alto impacto para posicionamiento
-                    de marca. Produccion profesional con equipo cinematografico.
+                    de marca. Producción profesional con equipo cinematográfico.
                   </p>
 
                   {/* Fullscreen play button */}
@@ -245,14 +245,14 @@ export default function Portfolio() {
                     <div>
                       <p className="text-lg font-bold text-white">33s</p>
                       <p className="text-xs text-white/40 uppercase tracking-wider">
-                        Duracion
+                        Duración
                       </p>
                     </div>
                     <div className="w-px h-8 bg-white/10" />
                     <div>
                       <p className="text-lg font-bold text-white">720p</p>
                       <p className="text-xs text-white/40 uppercase tracking-wider">
-                        Resolucion
+                        Resolución
                       </p>
                     </div>
                   </div>
@@ -267,7 +267,7 @@ export default function Portfolio() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">
-                Fotografia & Branding
+                Fotografía & Branding
               </span>
               <div className="flex-1 h-px bg-neutral-200" />
             </div>

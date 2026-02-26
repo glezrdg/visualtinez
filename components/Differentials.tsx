@@ -8,9 +8,9 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const;
 const differentials = [
   {
     icon: Users,
-    title: "Acompanamiento cercano",
+    title: "Acompañamiento cercano",
     description:
-      "No solo ejecutamos, hacemos seguimiento estrategico constante. Tu marca siempre tiene un equipo detras.",
+      "No solo ejecutamos, hacemos seguimiento estratégico constante. Tu marca siempre tiene un equipo detrás.",
     stat: "24/7",
     statLabel: "Seguimiento",
   },
@@ -18,7 +18,7 @@ const differentials = [
     icon: Lightbulb,
     title: "Creatividad + Estrategia",
     description:
-      "Integramos la vision creativa con un plan estrategico solido. Todo lo que creamos tiene un proposito.",
+      "Integramos la visión creativa con un plan estratégico sólido. Todo lo que creamos tiene un propósito.",
     stat: "100%",
     statLabel: "Personalizado",
   },
@@ -26,7 +26,7 @@ const differentials = [
     icon: TrendingUp,
     title: "Resultados medibles",
     description:
-      "Ejecucion agil con enfoque en metricas reales. No hacemos contenido por hacer, buscamos impacto.",
+      "Ejecución ágil con enfoque en métricas reales. No hacemos contenido por hacer, buscamos impacto.",
     stat: "ROI",
     statLabel: "Comprobable",
   },
@@ -59,7 +59,7 @@ export default function Differentials() {
         >
           <span className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-[0.2em]">
             <span className="w-8 h-px bg-accent" />
-            Por que elegirnos
+            Por qué elegirnos
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight">
             Lo que nos hace{" "}

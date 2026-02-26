@@ -78,8 +78,8 @@ export default function Hero() {
             transition={{ duration: 0.6, ease, delay: 0.5 }}
             className="mt-5 lg:mt-6 text-base lg:text-lg text-white/60 leading-relaxed max-w-xl"
           >
-            Produccion audiovisual + estrategia digital para marcas que quieren
-            crecer. Acompanamiento constante con enfoque en resultados medibles.
+            Producción audiovisual + estrategia digital para marcas que quieren
+            crecer. Acompañamiento constante con enfoque en resultados medibles.
           </motion.p>
 
           {/* CTAs */}

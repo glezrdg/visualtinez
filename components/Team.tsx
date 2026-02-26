@@ -45,7 +45,7 @@ export default function Team() {
           </h2>
           <p className="mt-5 text-neutral-600 text-lg leading-relaxed">
             No somos freelancers, somos tu equipo. Trabajamos contigo mes a mes
-            con acompanamiento continuo y resultados medibles.
+            con acompañamiento continuo y resultados medibles.
           </p>
         </motion.div>
 

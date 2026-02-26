@@ -39,11 +39,11 @@ export default function ContactoPage() {
               Contacto
             </span>
             <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-neutral-900 tracking-tight">
-              Cuentanos sobre tu{" "}
+              Cuéntanos sobre tu{" "}
               <span className="text-drama text-primary">proyecto.</span>
             </h1>
             <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
-              Respondemos directamente desde nuestro equipo estrategico en 1 a 3
+              Respondemos directamente desde nuestro equipo estratégico en 1 a 3
               horas en horario laboral.
             </p>
           </motion.div>
@@ -68,7 +68,7 @@ export default function ContactoPage() {
                     className="text-primary mx-auto mb-4"
                   />
                   <h3 className="text-2xl font-bold text-neutral-900 mb-2">
-                    Mensaje enviado!
+                    ¡Mensaje enviado!
                   </h3>
                   <p className="text-neutral-600">
                     Te responderemos en 1 a 3 horas en horario laboral.
@@ -116,7 +116,7 @@ export default function ContactoPage() {
                       htmlFor="telefono"
                       className="block text-sm font-medium text-neutral-700 mb-2"
                     >
-                      Telefono / WhatsApp
+                      Teléfono / WhatsApp
                     </label>
                     <input
                       type="tel"
@@ -132,7 +132,7 @@ export default function ContactoPage() {
                       htmlFor="servicio"
                       className="block text-sm font-medium text-neutral-700 mb-2"
                     >
-                      Servicio de interes *
+                      Servicio de interés *
                     </label>
                     <select
                       id="servicio"
@@ -141,11 +141,11 @@ export default function ContactoPage() {
                       className="w-full rounded-xl border border-neutral-200 bg-neutral-100/50 px-4 py-3.5 text-sm text-neutral-900 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:bg-white focus:outline-none transition-all"
                     >
                       <option value="">Selecciona un servicio</option>
-                      <option value="fotografia">Fotografia</option>
+                      <option value="fotografia">Fotografía</option>
                       <option value="videografia">
-                        Produccion Audiovisual
+                        Producción Audiovisual
                       </option>
-                      <option value="redes">Gestion de Redes Sociales</option>
+                      <option value="redes">Gestión de Redes Sociales</option>
                       <option value="marketing">Marketing Digital</option>
                       <option value="paquete">
                         Paquete completo (varios servicios)
@@ -158,7 +158,7 @@ export default function ContactoPage() {
                       htmlFor="mensaje"
                       className="block text-sm font-medium text-neutral-700 mb-2"
                     >
-                      Cuentanos sobre tu proyecto *
+                      Cuéntanos sobre tu proyecto *
                     </label>
                     <textarea
                       id="mensaje"
@@ -194,7 +194,7 @@ export default function ContactoPage() {
             >
               {/* Contact info card */}
               <div className="rounded-2xl bg-neutral-100/70 border border-neutral-200/50 p-6 space-y-5">
-                <h3 className="font-bold text-neutral-900">Informacion</h3>
+                <h3 className="font-bold text-neutral-900">Información</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <MapPin
@@ -203,10 +203,10 @@ export default function ContactoPage() {
                     />
                     <div>
                       <p className="text-sm font-medium text-neutral-900">
-                        Ubicacion
+                        Ubicación
                       </p>
                       <p className="text-sm text-neutral-500">
-                        Santo Domingo, Republica Dominicana
+                        Santo Domingo, República Dominicana
                       </p>
                     </div>
                   </div>
@@ -244,9 +244,9 @@ export default function ContactoPage() {
               {/* WhatsApp card */}
               <div className="rounded-2xl bg-primary p-6 text-white">
                 <MessageCircle size={22} className="mb-3 text-white/70" />
-                <h3 className="font-bold text-lg">Prefiere WhatsApp?</h3>
+                <h3 className="font-bold text-lg">¿Prefiere WhatsApp?</h3>
                 <p className="text-sm text-white/50 mt-2 mb-5 leading-relaxed">
-                  Escribenos directamente y te respondemos en minutos.
+                  Escríbenos directamente y te respondemos en minutos.
                 </p>
                 <a
                   href={WHATSAPP_URL}
@@ -266,7 +266,7 @@ export default function ContactoPage() {
                 </h3>
                 <p className="text-3xl font-bold text-accent mt-2">1-3 horas</p>
                 <p className="text-sm text-neutral-500 mt-1">
-                  Responde directamente el equipo estrategico en horario
+                  Responde directamente el equipo estratégico en horario
                   laboral.
                 </p>
               </div>

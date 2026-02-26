@@ -24,7 +24,7 @@ export default function Philosophy() {
           className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-[0.2em] mb-10"
         >
           <span className="w-8 h-px bg-accent" />
-          Nuestra filosofia
+          Nuestra filosofía
         </motion.span>
 
         {/* Contrast Statement */}
@@ -35,8 +35,8 @@ export default function Philosophy() {
           transition={{ duration: 0.6, ease, delay: 0.1 }}
           className="text-lg md:text-xl text-white/35 leading-relaxed mb-6"
         >
-          La mayoria de agencias se enfoca en publicar contenido por publicar.
-          Nosotros creamos con proposito.
+          La mayoría de agencias se enfoca en publicar contenido por publicar.
+          Nosotros creamos con propósito.
         </motion.p>
 
         <motion.h2
@@ -61,9 +61,9 @@ export default function Philosophy() {
           className="flex flex-col sm:flex-row gap-8 sm:gap-16 mt-16 pt-10 border-t border-white/10"
         >
           {[
-            { number: "01", text: "Acompanamiento cercano y estrategico" },
+            { number: "01", text: "Acompañamiento cercano y estratégico" },
             { number: "02", text: "Creatividad + estrategia en un mismo equipo" },
-            { number: "03", text: "Ejecucion agil con resultados medibles" },
+            { number: "03", text: "Ejecución ágil con resultados medibles" },
           ].map((item) => (
             <div key={item.number} className="flex-1">
               <span className="text-xs font-mono text-accent/70 tracking-wider">

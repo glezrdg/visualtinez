@@ -10,21 +10,21 @@ const services = [
   {
     number: "01",
     icon: Camera,
-    title: "Fotografia",
+    title: "Fotografía",
     description:
-      "Sesiones fotograficas profesionales para tu marca. Producto, corporativas, lifestyle y contenido para redes.",
+      "Sesiones fotográficas profesionales para tu marca. Producto, corporativas, lifestyle y contenido para redes.",
   },
   {
     number: "02",
     icon: Video,
-    title: "Videografia",
+    title: "Videografía",
     description:
-      "Produccion audiovisual completa. Reels, comerciales, contenido para redes y videos corporativos.",
+      "Producción audiovisual completa. Reels, comerciales, contenido para redes y videos corporativos.",
   },
   {
     number: "03",
     icon: Share2,
-    title: "Gestion de Redes",
+    title: "Gestión de Redes",
     description:
       "Manejo integral de tus redes sociales con estrategia, contenido y comunidad. No solo publicamos, construimos.",
   },
@@ -33,7 +33,7 @@ const services = [
     icon: BarChart3,
     title: "Marketing Digital",
     description:
-      "Estrategia digital completa. Publicidad, posicionamiento y campanas enfocadas en resultados reales.",
+      "Estrategia digital completa. Publicidad, posicionamiento y campañas enfocadas en resultados reales.",
   },
 ];
 
@@ -122,7 +122,7 @@ export default function Services() {
               {/* Arrow */}
               <div className="mt-6 pt-5 border-t border-neutral-100 group-hover:border-primary/10 transition-colors">
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500">
-                  Conocer mas
+                  Conocer más
                   <ArrowRight size={14} />
                 </span>
               </div>

@@ -34,8 +34,8 @@ export default function CTA() {
           </h2>
 
           <p className="mt-6 text-base lg:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-            Respondemos en 1 a 3 horas en horario laboral. Cuentanos sobre tu
-            proyecto y te decimos como podemos ayudarte.
+            Respondemos en 1 a 3 horas en horario laboral. Cuéntanos sobre tu
+            proyecto y te decimos cómo podemos ayudarte.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">

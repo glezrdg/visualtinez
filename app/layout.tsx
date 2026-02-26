@@ -24,12 +24,12 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "VT | Estudio Creativo — Produccion Audiovisual & Marketing Digital",
+  title: "VT | Estudio Creativo — Producción Audiovisual & Marketing Digital",
   description:
-    "Estudio creativo en Santo Domingo, RD. Produccion audiovisual, fotografia profesional, gestion de redes sociales y marketing digital con enfoque estrategico y resultados medibles.",
+    "Estudio creativo en Santo Domingo, RD. Producción audiovisual, fotografía profesional, gestión de redes sociales y marketing digital con enfoque estratégico y resultados medibles.",
   keywords: [
-    "produccion audiovisual",
-    "fotografia profesional",
+    "producción audiovisual",
+    "fotografía profesional",
     "marketing digital",
     "redes sociales",
     "Santo Domingo",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "VT | Estudio Creativo",
     description:
-      "Produccion audiovisual y estrategia digital para marcas que quieren crecer.",
+      "Producción audiovisual y estrategia digital para marcas que quieren crecer.",
     type: "website",
     locale: "es_DO",
   },

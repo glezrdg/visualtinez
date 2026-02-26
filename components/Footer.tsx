@@ -28,9 +28,9 @@ export default function Footer() {
               <span className="font-bold text-lg tracking-tight">VT</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-sm">
-              Estudio creativo en Santo Domingo. Produccion audiovisual y
+              Estudio creativo en Santo Domingo. Producción audiovisual y
               estrategia digital para marcas que quieren crecer con
-              acompanamiento constante y resultados medibles.
+              acompañamiento constante y resultados medibles.
             </p>
 
             {/* Operational Status */}
@@ -45,7 +45,7 @@ export default function Footer() {
           {/* Links */}
           <div className="md:col-span-3">
             <h4 className="font-semibold text-xs uppercase tracking-[0.15em] mb-5 text-white/30">
-              Navegacion
+              Navegación
             </h4>
             <ul className="flex flex-col gap-3">
               {footerLinks.map((link) => (
@@ -69,7 +69,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-4 text-sm text-white/50">
               <li className="flex items-center gap-3">
                 <MapPin size={15} className="text-accent/70 shrink-0" />
-                Santo Domingo, Republica Dominicana
+                Santo Domingo, República Dominicana
               </li>
               <li className="flex items-center gap-3">
                 <Clock size={15} className="text-accent/70 shrink-0" />
@@ -106,7 +106,7 @@ export default function Footer() {
             derechos reservados.
           </p>
           <p className="text-xs text-white/25">
-            Santo Domingo, Republica Dominicana
+            Santo Domingo, República Dominicana
           </p>
         </div>
       </div>

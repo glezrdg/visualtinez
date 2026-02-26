@@ -18,22 +18,22 @@ const services = [
   {
     number: "01",
     icon: Camera,
-    title: "Fotografia Profesional",
+    title: "Fotografía Profesional",
     image: "/images/fundador-camara.jpg",
     description:
-      "Capturamos la esencia de tu marca con sesiones fotograficas de alta calidad. Desde producto hasta lifestyle, cada imagen cuenta una historia.",
+      "Capturamos la esencia de tu marca con sesiones fotográficas de alta calidad. Desde producto hasta lifestyle, cada imagen cuenta una historia.",
     features: [
-      "Fotografia de producto",
+      "Fotografía de producto",
       "Sesiones corporativas",
       "Contenido para redes sociales",
-      "Fotografia de eventos",
-      "Edicion y retoque profesional",
+      "Fotografía de eventos",
+      "Edición y retoque profesional",
     ],
   },
   {
     number: "02",
     icon: Video,
-    title: "Produccion Audiovisual",
+    title: "Producción Audiovisual",
     image: "/images/workspace.png",
     description:
       "Creamos contenido en video que engancha y convierte. Desde reels hasta producciones completas, tu mensaje cobra vida.",
@@ -42,20 +42,20 @@ const services = [
       "Videos corporativos",
       "Comerciales publicitarios",
       "Contenido para YouTube",
-      "Edicion y postproduccion",
+      "Edición y postproducción",
     ],
   },
   {
     number: "03",
     icon: Share2,
-    title: "Gestion de Redes Sociales",
+    title: "Gestión de Redes Sociales",
     image: "/images/miembro-laptop.png",
     description:
       "Gestionamos tus redes con estrategia. No solo publicamos contenido, construimos comunidad y generamos engagement real.",
     features: [
       "Estrategia de contenido mensual",
-      "Diseno de piezas graficas",
-      "Programacion y publicacion",
+      "Diseño de piezas gráficas",
+      "Programación y publicación",
       "Community management",
       "Reportes de rendimiento",
     ],
@@ -66,12 +66,12 @@ const services = [
     title: "Marketing Digital",
     image: "/images/equipo-trabajo.jpg",
     description:
-      "Estrategia digital completa enfocada en resultados. Publicidad pagada, posicionamiento y campanas que generan retorno real.",
+      "Estrategia digital completa enfocada en resultados. Publicidad pagada, posicionamiento y campañas que generan retorno real.",
     features: [
       "Publicidad en Meta y Google",
       "Estrategia de posicionamiento",
-      "Campanas de conversion",
-      "Analisis y optimizacion",
+      "Campañas de conversión",
+      "Análisis y optimización",
       "Reportes mensuales de ROI",
     ],
   },
@@ -98,7 +98,7 @@ export default function ServiciosPage() {
               <span className="text-drama text-primary">marca.</span>
             </h1>
             <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
-              Ofrecemos un acompanamiento completo: desde la produccion de
+              Ofrecemos un acompañamiento completo: desde la producción de
               contenido hasta la estrategia digital. Un solo equipo, todos los
               resultados.
             </p>
@@ -189,17 +189,17 @@ export default function ServiciosPage() {
             transition={{ duration: 0.5, ease }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Necesitas alguno de estos{" "}
+              ¿Necesitas alguno de estos{" "}
               <span className="text-drama">servicios?</span>
             </h2>
             <p className="mt-4 text-white/50 text-lg">
-              Cuentanos sobre tu proyecto y armamos un plan a tu medida.
+              Cuéntanos sobre tu proyecto y armamos un plan a tu medida.
             </p>
             <Link
               href="/contacto"
               className="btn-magnetic inline-flex items-center gap-2.5 rounded-full bg-accent px-8 py-4 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/25 transition-shadow group mt-8"
             >
-              Solicitar cotizacion
+              Solicitar cotización
               <ArrowRight
                 size={15}
                 className="group-hover:translate-x-1 transition-transform"
