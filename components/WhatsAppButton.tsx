@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const WHATSAPP_URL = "https://wa.me/18492807332";
+const WHATSAPP_URL = "https://wa.me/18099314693";
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);

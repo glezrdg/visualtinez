@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/18492807332";
+const WHATSAPP_URL = "https://wa.me/18099314693";
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 export default function CTA() {

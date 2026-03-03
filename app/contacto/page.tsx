@@ -12,15 +12,45 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/18492807332";
+const WHATSAPP_URL = "https://wa.me/18099314693";
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 export default function ContactoPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = {
+      nombre: (form.elements.namedItem("nombre") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      telefono: (form.elements.namedItem("telefono") as HTMLInputElement).value,
+      servicio: (form.elements.namedItem("servicio") as HTMLSelectElement).value,
+      mensaje: (form.elements.namedItem("mensaje") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Hubo un error al enviar. Intenta de nuevo o escríbenos por WhatsApp.");
+      }
+    } catch {
+      setError("Error de conexión. Intenta de nuevo o escríbenos por WhatsApp.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -170,12 +200,19 @@ export default function ContactoPage() {
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                      {error}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    className="btn-magnetic inline-flex items-center gap-2.5 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white hover:shadow-lg hover:shadow-primary/20 transition-shadow group"
+                    disabled={sending}
+                    className="btn-magnetic inline-flex items-center gap-2.5 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white hover:shadow-lg hover:shadow-primary/20 transition-shadow group disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     <Send size={15} />
-                    Enviar mensaje
+                    {sending ? "Enviando..." : "Enviar mensaje"}
                     <ArrowRight
                       size={14}
                       className="group-hover:translate-x-1 transition-transform"
@@ -234,7 +271,7 @@ export default function ContactoPage() {
                         Email
                       </p>
                       <p className="text-sm text-neutral-500">
-                        info@vtstudio.com
+                        visualtinez@gmail.com
                       </p>
                     </div>
                   </div>
@@ -244,7 +281,7 @@ export default function ContactoPage() {
               {/* WhatsApp card */}
               <div className="rounded-2xl bg-primary p-6 text-white">
                 <MessageCircle size={22} className="mb-3 text-white/70" />
-                <h3 className="font-bold text-lg">¿Prefiere WhatsApp?</h3>
+                <h3 className="font-bold text-lg">¿Prefieres WhatsApp?</h3>
                 <p className="text-sm text-white/50 mt-2 mb-5 leading-relaxed">
                   Escríbenos directamente y te respondemos en minutos.
                 </p>

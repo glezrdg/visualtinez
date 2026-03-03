@@ -145,7 +145,7 @@ export default function Portfolio() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 60vw"
                     quality={100}
-                    className={`object-cover transition-opacity duration-500 ${
+                    className={`object-cover object-top transition-opacity duration-500 ${
                       isPlaying ? "opacity-0" : "opacity-100"
                     }`}
                   />
@@ -267,7 +267,7 @@ export default function Portfolio() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">
-                Fotografía & Branding
+                Proyectos
               </span>
               <div className="flex-1 h-px bg-neutral-200" />
             </div>
@@ -291,7 +291,7 @@ export default function Portfolio() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     quality={100}
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-cover object-[center_25%] group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
 
                   {/* Hover Overlay */}

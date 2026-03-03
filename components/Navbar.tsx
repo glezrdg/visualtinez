@@ -49,20 +49,18 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <Image
               src="/logo/vt-logo.jpg"
-              alt="VT"
-              width={40}
-              height={40}
+              alt="Visual Tinez"
+              width={44}
+              height={44}
               quality={100}
-              className={`rounded-lg transition-all duration-500 ${
-                scrolled ? "" : "brightness-0 invert"
-              }`}
+              className="rounded-lg transition-all duration-500"
             />
             <span
               className={`font-bold text-lg tracking-tight transition-colors duration-500 ${
                 scrolled ? "text-neutral-900" : "text-white"
               }`}
             >
-              VT
+              Visual Tinez
             </span>
           </Link>
 

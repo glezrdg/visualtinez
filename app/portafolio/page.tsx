@@ -3,99 +3,134 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Play, Pause, Volume2, VolumeX } from "lucide-react";
+import { Play } from "lucide-react";
 import VideoModal from "@/components/VideoModal";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
-const categories = ["Todos", "Fotografía", "Branding", "Producción"];
-
-const projects = [
+/* ─── BRANDING PROJECTS ─── */
+const brandingProjects = [
   {
-    image: "/images/branding-mockup.jpg",
-    title: "Identidad Visual VT",
-    category: "Branding",
+    slug: "carla-solis",
+    title: "Carla Solís",
+    subtitle: "Marca Personal — Entrenamiento Fitness",
     description:
-      "Sistema completo de identidad visual incluyendo logo, papelería y aplicaciones digitales.",
+      "Carla Solís es una entrenadora personal enfocada en ayudar a las personas a transformar su físico y adoptar un estilo de vida más saludable a través de la disciplina, el conocimiento y la constancia.",
+    challenge:
+      "Desarrollar una identidad visual sólida y profesional que transmita autoridad, conocimiento y experiencia, sin perder dinamismo ni energía propios del sector fitness.",
+    cover: "/images/portfolio/branding/carla-solis/Carla Solis.jpg",
+    images: [
+      "/images/portfolio/branding/carla-solis/Logo-2-jpg.jpg",
+      "/images/portfolio/branding/carla-solis/GORRA.jpg",
+      "/images/portfolio/branding/carla-solis/MOCHILA.jpg",
+      "/images/portfolio/branding/carla-solis/Pote02.jpg",
+      "/images/portfolio/branding/carla-solis/Tote Bag2.jpg",
+      "/images/portfolio/branding/carla-solis/Letrero2.jpg",
+      "/images/portfolio/branding/carla-solis/reloj.jpg",
+    ],
   },
   {
-    image: "/images/equipo-trabajo.jpg",
-    title: "Sesión Corporativa",
-    category: "Fotografía",
+    slug: "fly-gaming",
+    title: "Fly Gaming",
+    subtitle: "Tienda Virtual — Tecnología & Gaming",
     description:
-      "Sesión fotográfica profesional para equipo de trabajo en estudio.",
-  },
-  {
-    image: "/images/workspace.png",
-    title: "Producción Audiovisual",
-    category: "Producción",
-    description:
-      "Configuración y producción profesional de contenido audiovisual.",
-  },
-  {
-    image: "/images/fundador-camara.jpg",
-    title: "Contenido para Redes",
-    category: "Fotografía",
-    description:
-      "Creación de contenido visual optimizado para plataformas digitales.",
-  },
-  {
-    image: "/images/miembro-laptop.png",
-    title: "Contenido Digital",
-    category: "Branding",
-    description:
-      "Creación de contenido visual para presencia digital y redes sociales.",
-  },
-  {
-    image: "/images/equipo-grupal.jpg",
-    title: "Fotografía de Equipo",
-    category: "Fotografía",
-    description:
-      "Sesión grupal para comunicar la identidad y cultura del equipo.",
-  },
-  {
-    image: "/images/fundador-principal.png",
-    title: "Fotografía Profesional",
-    category: "Fotografía",
-    description:
-      "Retratos profesionales para posicionamiento de marca personal.",
+      "Fly Gaming es una tienda virtual especializada en la venta de equipos y accesorios tecnológicos para computadoras, desde periféricos hasta componentes esenciales para armar y optimizar setups de alto rendimiento.",
+    challenge:
+      "Desarrollar un logotipo creativo y atractivo que conectara de inmediato con una audiencia joven y tecnológica, sin perder claridad ni profesionalismo.",
+    cover: "/images/portfolio/branding/fly-gaming/Color.jpg",
+    images: [
+      "/images/portfolio/branding/fly-gaming/Celular.jpg",
+      "/images/portfolio/branding/fly-gaming/Laptop.jpg",
+      "/images/portfolio/branding/fly-gaming/Gorra.jpg",
+      "/images/portfolio/branding/fly-gaming/TSHIRT.jpg",
+      "/images/portfolio/branding/fly-gaming/Empaque.jpg",
+      "/images/portfolio/branding/fly-gaming/Laptop2.jpg",
+    ],
   },
 ];
 
+/* ─── PHOTOGRAPHY PROJECTS ─── */
+const photographyProjects = [
+  {
+    slug: "llaves-arias",
+    title: "Llaves Arias",
+    cover: "/images/portfolio/fotografia/llaves-arias/DSC_0054.jpg",
+    images: [
+      "/images/portfolio/fotografia/llaves-arias/DSC_0058.jpg",
+      "/images/portfolio/fotografia/llaves-arias/DSC_0084.jpg",
+      "/images/portfolio/fotografia/llaves-arias/DSC_0094.jpg",
+      "/images/portfolio/fotografia/llaves-arias/DSC_0106.jpg",
+      "/images/portfolio/fotografia/llaves-arias/DSC_0113.jpg",
+      "/images/portfolio/fotografia/llaves-arias/DSC_0130.jpg",
+    ],
+  },
+  {
+    slug: "qkshine",
+    title: "QkShine",
+    cover: "/images/portfolio/fotografia/qkshine/P1370357_1.jpg",
+    images: [
+      "/images/portfolio/fotografia/qkshine/P1370399-2.jpg",
+      "/images/portfolio/fotografia/qkshine/P1390261-1.jpg",
+      "/images/portfolio/fotografia/qkshine/P1390281.jpg",
+      "/images/portfolio/fotografia/qkshine/P1390341.jpg",
+    ],
+  },
+  {
+    slug: "yn",
+    title: "Yn",
+    cover: "/images/portfolio/fotografia/yn/P1240333.JPG",
+    images: [
+      "/images/portfolio/fotografia/yn/P1240336.JPG",
+      "/images/portfolio/fotografia/yn/P1240341.JPG",
+      "/images/portfolio/fotografia/yn/P1240402.JPG",
+      "/images/portfolio/fotografia/yn/P1240447.JPG",
+    ],
+  },
+];
+
+/* ─── PRODUCTION PROJECTS ─── */
+const productionProjects = [
+  {
+    title: "LICEY",
+    subtitle: "Contenido Digital Deportivo",
+    description:
+      "Desarrollo de contenido audiovisual para redes sociales y plataformas digitales del equipo, enfocado en fortalecer la conexión con la fanaticada y elevar la calidad visual de su comunicación.",
+  },
+  {
+    title: "University Soccer",
+    subtitle: "Narrativa y Producción Audiovisual Deportiva",
+    description:
+      "Desarrollo de producciones documentales centradas en atletas jóvenes, construidas a partir de historias reales que resaltan su proceso, disciplina y crecimiento dentro y fuera del campo.",
+  },
+  {
+    title: "Armería Éxito",
+    subtitle: "Producción Audiovisual",
+    description:
+      "Desarrollo de contenido audiovisual enfocado en resaltar la experiencia y el rendimiento de los rifles PCP, mostrando su funcionamiento, precisión y calidad en escenarios reales de uso.",
+  },
+  {
+    title: "DV7",
+    subtitle: "Cobertura Especial — Visita de David Villa",
+    description:
+      "Producción audiovisual integral realizada durante dos días para la cobertura de la visita de David Villa, fundador y líder de la Academia de Soccer DV7, campeón del mundo con España.",
+  },
+];
+
+type Tab = "branding" | "fotografia" | "produccion";
+
 export default function PortafolioPage() {
-  const [activeFilter, setActiveFilter] = useState("Todos");
+  const [activeTab, setActiveTab] = useState<Tab>("branding");
+  const [expandedProject, setExpandedProject] = useState<string | null>(null);
   const [activeVideo, setActiveVideo] = useState<{
     src: string;
     title: string;
   } | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-  const previewRef = useRef<HTMLVideoElement>(null);
 
-  const filteredProjects =
-    activeFilter === "Todos"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
-
-  const handlePreviewToggle = () => {
-    const vid = previewRef.current;
-    if (!vid) return;
-    if (isPlaying) {
-      vid.pause();
-      setIsPlaying(false);
-    } else {
-      vid.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const handleMuteToggle = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    const vid = previewRef.current;
-    if (!vid) return;
-    vid.muted = !vid.muted;
-    setIsMuted(!isMuted);
-  };
+  const tabs: { key: Tab; label: string }[] = [
+    { key: "branding", label: "Branding" },
+    { key: "fotografia", label: "Fotografías" },
+    { key: "produccion", label: "Producción" },
+  ];
 
   return (
     <>
@@ -125,231 +160,324 @@ export default function PortafolioPage() {
           </div>
         </section>
 
-        {/* VIDEO SHOWCASE SECTION */}
-        <section className="py-16 bg-neutral-950">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            {/* Video Section Label */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease, delay: 0.2 }}
-              className="mb-10"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">
-                  Videografía
-                </span>
-                <div className="flex-1 h-px bg-white/10" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Producciones audiovisuales
-              </h2>
-              <p className="mt-2 text-sm text-white/40 max-w-lg">
-                Contenido en video de alto impacto para marcas que buscan
-                destacar y conectar con su audiencia.
-              </p>
-            </motion.div>
-
-            {/* Featured Video */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease, delay: 0.3 }}
-              className="group relative rounded-3xl overflow-hidden shadow-2xl"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-5">
-                {/* Video Area */}
-                <div
-                  className="relative lg:col-span-3 aspect-video lg:aspect-auto lg:min-h-96 cursor-pointer"
-                  onClick={handlePreviewToggle}
-                >
-                  <Image
-                    src="/images/fundador-principal.png"
-                    alt="Comercial de Marca"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    quality={100}
-                    className={`object-cover transition-opacity duration-500 ${
-                      isPlaying ? "opacity-0" : "opacity-100"
-                    }`}
-                  />
-                  <video
-                    ref={previewRef}
-                    src="/videos/VIDEO07.MP4"
-                    muted={isMuted}
-                    playsInline
-                    loop
-                    className="absolute inset-0 w-full h-full object-cover"
-                    onPlay={() => setIsPlaying(true)}
-                    onPause={() => setIsPlaying(false)}
-                  />
-
-                  {/* Play/Pause Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div
-                      className={`flex items-center justify-center rounded-full border-2 border-white/40 backdrop-blur-sm transition-all duration-500 ${
-                        isPlaying
-                          ? "w-12 h-12 bg-black/30 opacity-0 group-hover:opacity-100"
-                          : "w-20 h-20 lg:w-24 lg:h-24 bg-white/15 hover:bg-white/25 hover:scale-110"
-                      }`}
-                    >
-                      {isPlaying ? (
-                        <Pause size={20} className="text-white fill-white" />
-                      ) : (
-                        <Play
-                          size={28}
-                          className="text-white fill-white ml-1"
-                        />
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Mute Toggle */}
-                  {isPlaying && (
-                    <button
-                      onClick={handleMuteToggle}
-                      className="absolute bottom-4 left-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/60 transition-colors"
-                      aria-label={isMuted ? "Activar sonido" : "Silenciar"}
-                    >
-                      {isMuted ? (
-                        <VolumeX size={16} />
-                      ) : (
-                        <Volume2 size={16} />
-                      )}
-                    </button>
-                  )}
-
-                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-neutral-900/80 hidden lg:block pointer-events-none" />
-                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-neutral-900 to-transparent lg:hidden pointer-events-none" />
-                </div>
-
-                {/* Info Panel */}
-                <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center bg-neutral-900">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-accent/15 border border-accent/25 px-3 py-1 text-xs font-semibold text-accent w-fit mb-5">
-                    <Play size={10} className="fill-accent" />
-                    Video
-                  </span>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white tracking-tight">
-                    Comercial de Marca
-                  </h3>
-                  <p className="mt-3 text-sm lg:text-base text-white/50 leading-relaxed">
-                    Comercial audiovisual de alto impacto para posicionamiento
-                    de marca. Producción profesional con equipo cinematográfico.
-                  </p>
-
-                  <button
-                    onClick={() =>
-                      setActiveVideo({
-                        src: "/videos/VIDEO07.MP4",
-                        title: "Comercial de Marca",
-                      })
-                    }
-                    className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-white/10 border border-white/15 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors w-fit group/btn"
-                  >
-                    <Play size={14} className="fill-white" />
-                    Ver en pantalla completa
-                    <ArrowRight
-                      size={14}
-                      className="group-hover/btn:translate-x-1 transition-transform"
-                    />
-                  </button>
-
-                  <div className="flex items-center gap-6 mt-8 pt-6 border-t border-white/10">
-                    <div>
-                      <p className="text-lg font-bold text-white">HD</p>
-                      <p className="text-xs text-white/40 uppercase tracking-wider">
-                        Calidad
-                      </p>
-                    </div>
-                    <div className="w-px h-8 bg-white/10" />
-                    <div>
-                      <p className="text-lg font-bold text-white">33s</p>
-                      <p className="text-xs text-white/40 uppercase tracking-wider">
-                        Duración
-                      </p>
-                    </div>
-                    <div className="w-px h-8 bg-white/10" />
-                    <div>
-                      <p className="text-lg font-bold text-white">720p</p>
-                      <p className="text-xs text-white/40 uppercase tracking-wider">
-                        Resolución
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* PHOTO GALLERY */}
+        {/* Tabs */}
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            {/* Filters */}
-            <div className="flex flex-wrap gap-2 mb-12">
-              {categories.map((cat) => (
+            <div className="flex flex-wrap gap-2 mb-14">
+              {tabs.map((tab) => (
                 <button
-                  key={cat}
-                  onClick={() => setActiveFilter(cat)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                    activeFilter === cat
+                  key={tab.key}
+                  onClick={() => {
+                    setActiveTab(tab.key);
+                    setExpandedProject(null);
+                  }}
+                  className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+                    activeTab === tab.key
                       ? "bg-primary text-white shadow-md shadow-primary/20"
                       : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
                   }`}
                 >
-                  {cat}
+                  {tab.label}
                 </button>
               ))}
             </div>
 
-            {/* Grid */}
             <AnimatePresence mode="wait">
-              <motion.div
-                key={activeFilter}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
-              >
-                {filteredProjects.map((project, index) => (
-                  <motion.div
-                    key={project.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease, delay: index * 0.08 }}
-                    className="group rounded-2xl overflow-hidden bg-white border border-neutral-200/80 hover:shadow-xl hover:shadow-primary/8 transition-all duration-500"
-                  >
-                    <div className="relative aspect-4/3 overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={100}
-                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-primary">
-                          {project.category}
-                        </span>
+              {/* ─── BRANDING TAB ─── */}
+              {activeTab === "branding" && (
+                <motion.div
+                  key="branding"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-20"
+                >
+                  {brandingProjects.map((project) => (
+                    <div key={project.slug}>
+                      {/* Cover + Info */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-10">
+                        <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-xl">
+                          <Image
+                            src={project.cover}
+                            alt={project.title}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            quality={100}
+                            className="object-cover"
+                          />
+                        </div>
+                        <div>
+                          <span className="inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-xs font-semibold text-accent mb-4">
+                            Branding
+                          </span>
+                          <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 tracking-tight">
+                            {project.title}
+                          </h2>
+                          <p className="text-sm text-neutral-500 mt-1 mb-4">
+                            {project.subtitle}
+                          </p>
+                          <p className="text-neutral-600 leading-relaxed mb-4">
+                            {project.description}
+                          </p>
+                          <div className="bg-neutral-100 rounded-xl p-5">
+                            <h4 className="text-sm font-bold text-neutral-900 mb-2">
+                              Reto
+                            </h4>
+                            <p className="text-sm text-neutral-600 leading-relaxed">
+                              {project.challenge}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Gallery */}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {project.images.map((img, i) => (
+                          <motion.div
+                            key={img}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.4,
+                              ease,
+                              delay: i * 0.05,
+                            }}
+                            className="group relative aspect-square rounded-xl overflow-hidden"
+                          >
+                            <Image
+                              src={img}
+                              alt={`${project.title} - ${i + 1}`}
+                              fill
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                              quality={100}
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </motion.div>
+                        ))}
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-lg font-bold text-neutral-900">
-                        {project.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-neutral-500 leading-relaxed">
-                        {project.description}
-                      </p>
-                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary mt-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500">
-                        Ver proyecto <ArrowRight size={12} />
-                      </span>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* ─── PHOTOGRAPHY TAB ─── */}
+              {activeTab === "fotografia" && (
+                <motion.div
+                  key="fotografia"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-16"
+                >
+                  {photographyProjects.map((project) => (
+                    <div key={project.slug}>
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
+                        <h3 className="text-2xl font-bold text-neutral-900">
+                          {project.title}
+                        </h3>
+                        <div className="flex-1 h-px bg-neutral-200" />
+                      </div>
+
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {/* Cover first */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, ease }}
+                          className="group relative aspect-4/3 rounded-xl overflow-hidden col-span-2 row-span-2"
+                        >
+                          <Image
+                            src={project.cover}
+                            alt={project.title}
+                            fill
+                            sizes="(max-width: 640px) 100vw, 50vw"
+                            quality={100}
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </motion.div>
+                        {/* Other photos */}
+                        {project.images.map((img, i) => (
+                          <motion.div
+                            key={img}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.4,
+                              ease,
+                              delay: (i + 1) * 0.06,
+                            }}
+                            className="group relative aspect-4/3 rounded-xl overflow-hidden"
+                          >
+                            <Image
+                              src={img}
+                              alt={`${project.title} - ${i + 1}`}
+                              fill
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                              quality={100}
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* ─── PRODUCTION TAB ─── */}
+              {activeTab === "produccion" && (
+                <motion.div
+                  key="produccion"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-10"
+                >
+                  {/* Video showcase from home */}
+                  <div className="rounded-3xl overflow-hidden bg-neutral-950 p-8 lg:p-12 mb-10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                      <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">
+                        Videografía
+                      </span>
+                      <div className="flex-1 h-px bg-white/10" />
+                    </div>
+                    <p className="text-white/50 text-sm max-w-2xl mb-8">
+                      Contenido en video de alto impacto para marcas que buscan
+                      destacar y conectar con su audiencia.
+                    </p>
+
+                    {/* Video preview - auto-plays muted as thumbnail */}
+                    <div
+                      className="relative aspect-video rounded-2xl overflow-hidden cursor-pointer group"
+                      onClick={() =>
+                        setActiveVideo({
+                          src: "/videos/VIDEO07.MP4",
+                          title: "Reel Visual Tinez",
+                        })
+                      }
+                    >
+                      <video
+                        src="/videos/VIDEO07.MP4"
+                        muted
+                        autoPlay
+                        playsInline
+                        loop
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                        <div className="w-20 h-20 rounded-full bg-white/15 border-2 border-white/40 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Play
+                            size={28}
+                            className="text-white fill-white ml-1"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Reels showcase - 4 vertical videos side by side */}
+                  <div className="rounded-3xl overflow-hidden bg-neutral-100 p-6 lg:p-10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                      <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">
+                        Reels
+                      </span>
+                      <div className="flex-1 h-px bg-neutral-300" />
+                    </div>
+                    <p className="text-neutral-600 text-sm max-w-2xl mb-8">
+                      Contenido vertical de alto impacto para redes sociales.
+                    </p>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                      {[
+                        {
+                          src: "/videos/reels/VIDEO01.mp4",
+                          label: "Reel 01",
+                        },
+                        {
+                          src: "/videos/reels/VIDEO03.MP4",
+                          label: "Reel 02",
+                        },
+                        {
+                          src: "/videos/reels/VIDEO05.mp4",
+                          label: "Reel 03",
+                        },
+                        {
+                          src: "/videos/reels/VIDEO07.MP4",
+                          label: "Reel 04",
+                        },
+                      ].map((reel, i) => (
+                        <motion.div
+                          key={reel.src}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.4,
+                            ease,
+                            delay: i * 0.1,
+                          }}
+                          className="relative aspect-9/16 rounded-2xl overflow-hidden bg-neutral-900 shadow-lg"
+                        >
+                          <video
+                            src={reel.src}
+                            muted
+                            playsInline
+                            loop
+                            className="absolute inset-0 w-full h-full object-cover"
+                            onMouseEnter={(e) =>
+                              (e.target as HTMLVideoElement).play()
+                            }
+                            onMouseLeave={(e) => {
+                              const vid = e.target as HTMLVideoElement;
+                              vid.pause();
+                              vid.currentTime = 0;
+                            }}
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 p-3 bg-linear-to-t from-black/60 to-transparent">
+                            <span className="text-xs font-semibold text-white">
+                              {reel.label}
+                            </span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Production project cards */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {productionProjects.map((project, i) => (
+                      <motion.div
+                        key={project.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          ease,
+                          delay: i * 0.08,
+                        }}
+                        className="group p-8 rounded-2xl bg-neutral-100 hover:bg-primary/5 border border-neutral-200/80 hover:border-primary/20 transition-all duration-500"
+                      >
+                        <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-4">
+                          Producción
+                        </span>
+                        <h3 className="text-2xl font-bold text-neutral-900 mb-1">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-primary font-medium mb-4">
+                          {project.subtitle}
+                        </p>
+                        <p className="text-sm text-neutral-600 leading-relaxed">
+                          {project.description}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
         </section>

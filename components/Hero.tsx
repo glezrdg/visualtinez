@@ -1,43 +1,33 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/18492807332";
+const WHATSAPP_URL = "https://wa.me/18099314693";
+const PHONE = "(809) 931-4693";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid) return;
-    vid.currentTime = 12;
-  }, []);
-
   return (
     <section className="relative h-screen min-h-[700px] overflow-hidden">
-      {/* Video Background */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/images/equipo-trabajo.jpg"
-        className="absolute inset-0 w-full h-full object-cover object-[center_25%]"
-      >
-        <source src="/videos/VIDEO07.MP4" type="video/mp4" />
-      </video>
+      {/* Static Image Background */}
+      <Image
+        src="/images/hero/HOMEPAGE02..jpg"
+        alt="Visual Tinez"
+        fill
+        priority
+        quality={100}
+        sizes="100vw"
+        className="object-cover"
+      />
 
-      {/* Gradient Overlay — lighter to show faces */}
-      <div className="absolute inset-0 bg-linear-to-t from-[#002a34] via-primary-dark/40 to-transparent" />
-      <div className="absolute inset-0 bg-linear-to-r from-[#002a34]/40 to-transparent" />
-      {/* Top fade for navbar readability */}
-      <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-[#002a34]/40 to-transparent" />
+      {/* Gradient Overlays */}
+      <div className="absolute inset-0 bg-linear-to-t from-[#001a22] via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#001a22]/60 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-28 bg-linear-to-b from-black/30 to-transparent" />
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-between pt-28 lg:pt-32 pb-10 lg:pb-16">
@@ -61,13 +51,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.35 }}
-            className="max-w-3xl"
+            className="max-w-4xl"
           >
-            <span className="block text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08]">
-              Creamos contenido
+            <span className="block text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] uppercase">
+              Estrategia en acción
             </span>
-            <span className="block text-drama text-5xl sm:text-6xl lg:text-[5.5rem] text-white/90 mt-1 lg:mt-2 leading-[1]">
-              que conecta.
+            <span className="block text-drama text-5xl sm:text-6xl lg:text-[5.5rem] text-white/90 mt-1 lg:mt-2 leading-[1] uppercase">
+              Resultados en crecimiento
             </span>
           </motion.h1>
 
@@ -78,8 +68,8 @@ export default function Hero() {
             transition={{ duration: 0.6, ease, delay: 0.5 }}
             className="mt-5 lg:mt-6 text-base lg:text-lg text-white/60 leading-relaxed max-w-xl"
           >
-            Producción audiovisual + estrategia digital para marcas que quieren
-            crecer. Acompañamiento constante con enfoque en resultados medibles.
+            Trabajamos con marcas que entienden que competir en el entorno
+            digital requiere estructura, consistencia y enfoque estratégico.
           </motion.p>
 
           {/* CTAs */}

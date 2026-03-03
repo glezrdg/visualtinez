@@ -19,9 +19,9 @@ const services = [
     number: "01",
     icon: Camera,
     title: "Fotografía Profesional",
-    image: "/images/fundador-camara.jpg",
+    image: "/images/servicios/Fotografia.jpg",
     description:
-      "Capturamos la esencia de tu marca con sesiones fotográficas de alta calidad. Desde producto hasta lifestyle, cada imagen cuenta una historia.",
+      "La imagen define la primera impresión de tu marca. Creamos fotografías profesionales que transmiten identidad, calidad y confianza, fortaleciendo tu presencia visual en cada plataforma.",
     features: [
       "Fotografía de producto",
       "Sesiones corporativas",
@@ -33,12 +33,12 @@ const services = [
   {
     number: "02",
     icon: Video,
-    title: "Producción Audiovisual",
-    image: "/images/workspace.png",
+    title: "Videografía",
+    image: "/images/servicios/Produccion.PNG",
     description:
-      "Creamos contenido en video que engancha y convierte. Desde reels hasta producciones completas, tu mensaje cobra vida.",
+      "El video no solo muestra, comunica intención. Es narrativa en movimiento, emoción y dirección estratégica en cada segundo. Creamos piezas audiovisuales que transmiten la esencia de tu marca con claridad, impacto y coherencia.",
     features: [
-      "Reels y contenido corto",
+      "Contenido corto para redes",
       "Videos corporativos",
       "Comerciales publicitarios",
       "Contenido para YouTube",
@@ -51,7 +51,7 @@ const services = [
     title: "Gestión de Redes Sociales",
     image: "/images/miembro-laptop.png",
     description:
-      "Gestionamos tus redes con estrategia. No solo publicamos contenido, construimos comunidad y generamos engagement real.",
+      "Las redes sociales construyen una percepción constante. Gestionamos tu presencia digital con coherencia y dirección, asegurando que cada contenido fortalezca tu identidad y genere crecimiento sostenido.",
     features: [
       "Estrategia de contenido mensual",
       "Diseño de piezas gráficas",
@@ -64,9 +64,9 @@ const services = [
     number: "04",
     icon: BarChart3,
     title: "Marketing Digital",
-    image: "/images/equipo-trabajo.jpg",
+    image: "/images/servicios/Marketing.jpg",
     description:
-      "Estrategia digital completa enfocada en resultados. Publicidad pagada, posicionamiento y campañas que generan retorno real.",
+      "El crecimiento requiere planificación y ejecución precisa. Diseñamos acciones y campañas enfocadas en resultados medibles, transformando la atención en oportunidades reales para tu marca.",
     features: [
       "Publicidad en Meta y Google",
       "Estrategia de posicionamiento",
@@ -162,11 +162,9 @@ export default function ServiciosPage() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   quality={100}
-                  className="object-cover object-[center_10%]"
+                  className="object-cover"
                 />
-                {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-linear-to-t from-primary-dark/20 to-transparent" />
-                {/* Number badge */}
                 <div className="absolute top-5 left-5">
                   <span className="inline-flex items-center gap-2 rounded-full bg-white/90 backdrop-blur-sm px-3.5 py-1.5 text-xs font-bold text-primary">
                     <service.icon size={14} />

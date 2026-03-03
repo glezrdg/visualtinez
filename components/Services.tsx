@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Camera, Video, Share2, BarChart3, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
@@ -11,20 +12,23 @@ const services = [
     number: "01",
     icon: Camera,
     title: "Fotografía",
+    image: "/images/portfolio/fotografia/llaves-arias/DSC_0054.jpg",
     description:
-      "Sesiones fotográficas profesionales para tu marca. Producto, corporativas, lifestyle y contenido para redes.",
+      "Sesiones fotográficas profesionales para tu marca: producto, corporativas, lifestyle y contenido para redes.",
   },
   {
     number: "02",
     icon: Video,
     title: "Videografía",
+    image: "/images/fundador-camara.jpg",
     description:
-      "Producción audiovisual completa. Reels, comerciales, contenido para redes y videos corporativos.",
+      "Producción audiovisual completa. Comerciales, contenido para redes y videos corporativos.",
   },
   {
     number: "03",
     icon: Share2,
     title: "Gestión de Redes",
+    image: "/images/equipo-trabajo.jpg",
     description:
       "Manejo integral de tus redes sociales con estrategia, contenido y comunidad. No solo publicamos, construimos.",
   },
@@ -32,8 +36,9 @@ const services = [
     number: "04",
     icon: BarChart3,
     title: "Marketing Digital",
+    image: "/images/servicios/Marketing.jpg",
     description:
-      "Estrategia digital completa. Publicidad, posicionamiento y campañas enfocadas en resultados reales.",
+      "Estrategia digital completa: publicidad, posicionamiento y campañas enfocadas en resultados reales.",
   },
 ];
 
@@ -74,7 +79,7 @@ export default function Services() {
           </div>
           <Link
             href="/servicios"
-            className="mt-6 sm:mt-0 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark transition-colors group"
+            className="mt-6 sm:mt-0 btn-magnetic inline-flex items-center gap-2.5 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white hover:shadow-lg hover:shadow-primary/20 transition-shadow group"
           >
             Ver todos los servicios
             <ArrowRight
@@ -93,40 +98,56 @@ export default function Services() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6"
         >
           {services.map((service) => (
-            <motion.div
-              key={service.number}
-              variants={staggerItem}
-              className="group relative p-8 lg:p-10 rounded-2xl bg-white hover:shadow-xl hover:shadow-primary/8 transition-all duration-500 border border-neutral-200/80 hover:border-primary/20"
-            >
-              {/* Number + Icon */}
-              <div className="flex items-start justify-between mb-8">
-                <span className="text-6xl lg:text-7xl font-extrabold text-primary/[0.07] group-hover:text-primary/15 transition-colors duration-500 leading-none">
-                  {service.number}
-                </span>
-                <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center group-hover:bg-primary group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-500">
-                  <service.icon
-                    size={22}
-                    className="text-primary group-hover:text-white transition-colors duration-500"
-                  />
+            <Link key={service.number} href="/servicios">
+              <motion.div
+                variants={staggerItem}
+                className="group relative rounded-2xl overflow-hidden h-full min-h-70 lg:min-h-80 cursor-pointer"
+              >
+                {/* Background Image */}
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  quality={100}
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/20 group-hover:from-primary-dark/85 group-hover:via-primary-dark/50 group-hover:to-primary-dark/25 transition-colors duration-500" />
+
+                {/* Content */}
+                <div className="relative h-full flex flex-col justify-between p-8 lg:p-10">
+                  {/* Number + Icon */}
+                  <div className="flex items-start justify-between">
+                    <span className="text-6xl lg:text-7xl font-extrabold text-white/15 leading-none">
+                      {service.number}
+                    </span>
+                    <div className="w-12 h-12 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/25 transition-all duration-500">
+                      <service.icon size={22} className="text-white" />
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <div>
+                    <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-white/70 leading-relaxed text-sm">
+                      {service.description}
+                    </p>
+
+                    {/* Arrow */}
+                    <div className="mt-4 pt-4 border-t border-white/15">
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-white opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500">
+                        Conocer más
+                        <ArrowRight size={14} />
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl lg:text-2xl font-bold text-neutral-900 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-neutral-600 leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* Arrow */}
-              <div className="mt-6 pt-5 border-t border-neutral-100 group-hover:border-primary/10 transition-colors">
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500">
-                  Conocer más
-                  <ArrowRight size={14} />
-                </span>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>

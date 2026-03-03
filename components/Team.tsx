@@ -7,19 +7,19 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 const teamMembers = [
   {
+    image: "/images/workspace.png",
+    name: "Jolbert Espinal",
+    role: "Fundador y Estratega",
+  },
+  {
     image: "/images/fundador-camara.jpg",
-    name: "Miembro 1",
-    role: "Director Creativo",
+    name: "Leonardo Almonte",
+    role: "Productor de Contenido Digital",
   },
   {
     image: "/images/fundador-principal.png",
-    name: "Miembro 2",
-    role: "Productor Audiovisual",
-  },
-  {
-    image: "/images/miembro-laptop.png",
-    name: "Miembro 3",
-    role: "Estrategia Digital",
+    name: "Nicolás Peralta",
+    role: "Estratega de Medios Digitales",
   },
 ];
 
@@ -49,28 +49,27 @@ export default function Team() {
           </p>
         </motion.div>
 
-        {/* Group Photo */}
+        {/* Group Photo — reduced height */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease }}
-          className="relative aspect-video rounded-2xl overflow-hidden mb-12 shadow-xl shadow-primary/10"
+          className="relative aspect-21/9 rounded-2xl overflow-hidden mb-14 shadow-xl shadow-primary/10"
         >
           <Image
-            src="/images/equipo-grupal.jpg"
-            alt="Equipo VT"
+            src="/images/equipo-trabajo.jpg"
+            alt="Equipo Visual Tinez"
             fill
             sizes="(max-width: 768px) 100vw, 1280px"
             quality={100}
-            className="object-cover object-[center_70%]"
+            className="object-cover object-[center_30%]"
           />
-          {/* Subtle gradient overlay */}
           <div className="absolute inset-0 bg-linear-to-t from-primary-dark/20 to-transparent" />
         </motion.div>
 
-        {/* Individual Members */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+        {/* Individual Members — bigger photos */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
@@ -80,17 +79,17 @@ export default function Team() {
               transition={{ duration: 0.5, ease, delay: index * 0.1 }}
               className="group text-center"
             >
-              <div className="relative w-28 h-28 lg:w-32 lg:h-32 mx-auto rounded-full overflow-hidden mb-5 border-4 border-white shadow-lg group-hover:shadow-xl group-hover:shadow-primary/10 transition-shadow duration-500">
+              <div className="relative w-40 h-40 lg:w-48 lg:h-48 mx-auto rounded-full overflow-hidden mb-5 border-4 border-white shadow-lg group-hover:shadow-xl group-hover:shadow-primary/10 transition-shadow duration-500">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  sizes="128px"
+                  sizes="192px"
                   quality={100}
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-lg font-bold text-neutral-900">
+              <h3 className="text-xl font-bold text-neutral-900">
                 {member.name}
               </h3>
               <p className="text-sm text-neutral-500 mt-1">{member.role}</p>

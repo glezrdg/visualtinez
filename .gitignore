@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source assets (originals)
+/pagina gratis jolbert/
+InfoText.txt
+GEMINI.md
+*.zip
+
+# claude
+CLAUDE.md
