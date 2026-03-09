@@ -7,17 +7,17 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 const teamMembers = [
   {
-    image: "/images/workspace.png",
+    image: "/images/jolbert.png",
     name: "Jolbert Espinal",
     role: "Fundador y Estratega",
   },
   {
-    image: "/images/fundador-camara.jpg",
+    image: "/images/leonardo.jpg",
     name: "Leonardo Almonte",
     role: "Productor de Contenido Digital",
   },
   {
-    image: "/images/fundador-principal.png",
+    image: "/images/nicolas.png",
     name: "Nicolás Peralta",
     role: "Estratega de Medios Digitales",
   },
@@ -63,7 +63,7 @@ export default function Team() {
             fill
             sizes="(max-width: 768px) 100vw, 1280px"
             quality={100}
-            className="object-cover object-[center_30%]"
+            className="object-cover object-[center_20%]"
           />
           <div className="absolute inset-0 bg-linear-to-t from-primary-dark/20 to-transparent" />
         </motion.div>
