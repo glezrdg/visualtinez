@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Play } from "lucide-react";
-import VideoModal from "@/components/VideoModal";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
@@ -18,9 +16,9 @@ const brandingProjects = [
       "Carla Solís es una entrenadora personal enfocada en ayudar a las personas a transformar su físico y adoptar un estilo de vida más saludable a través de la disciplina, el conocimiento y la constancia.",
     challenge:
       "Desarrollar una identidad visual sólida y profesional que transmita autoridad, conocimiento y experiencia, sin perder dinamismo ni energía propios del sector fitness.",
-    cover: "/images/portfolio/branding/carla-solis/Carla Solis.jpg",
+    cover: "/images/portfolio/branding/carla-solis/Logo-2-jpg.jpg",
     images: [
-      "/images/portfolio/branding/carla-solis/Logo-2-jpg.jpg",
+      "/images/portfolio/branding/carla-solis/Carla Solis.jpg",
       "/images/portfolio/branding/carla-solis/GORRA.jpg",
       "/images/portfolio/branding/carla-solis/MOCHILA.jpg",
       "/images/portfolio/branding/carla-solis/Pote02.jpg",
@@ -88,8 +86,39 @@ const photographyProjects = [
   },
 ];
 
+/* ─── DV7 PHOTOS ─── */
+const dv7Photos = [
+  "/images/portfolio/produccion/dv7/P1490628.jpg",
+  "/images/portfolio/produccion/dv7/P1500532.jpg",
+  "/images/portfolio/produccion/dv7/P1480805.jpg",
+  "/images/portfolio/produccion/dv7/P1500059.jpg",
+  "/images/portfolio/produccion/dv7/P1490038.jpg",
+  "/images/portfolio/produccion/dv7/P1490356.jpg",
+  "/images/portfolio/produccion/dv7/P1490377.jpg",
+  "/images/portfolio/produccion/dv7/P1500311.jpg",
+  "/images/portfolio/produccion/dv7/P1500463.jpg",
+  "/images/portfolio/produccion/dv7/P1500567.jpg",
+  "/images/portfolio/produccion/dv7/P1480808.jpg",
+  "/images/portfolio/produccion/dv7/P1480810.jpg",
+  "/images/portfolio/produccion/dv7/P1480829.jpg",
+  "/images/portfolio/produccion/dv7/P1490629.jpg",
+  "/images/portfolio/produccion/dv7/P1490645.jpg",
+  "/images/portfolio/produccion/dv7/P1490651.jpg",
+  "/images/portfolio/produccion/dv7/P1490684.jpg",
+  "/images/portfolio/produccion/dv7/P1500147.jpg",
+  "/images/portfolio/produccion/dv7/P1500485.jpg",
+  "/images/portfolio/produccion/dv7/P1500546.jpg",
+];
+
 /* ─── PRODUCTION PROJECTS ─── */
 const productionProjects = [
+  {
+    title: "DV7 Academy",
+    subtitle: "Cobertura Deportiva — Academia de Fútbol",
+    description:
+      "Producción fotográfica integral realizada para la academia de fútbol DV7. Capturamos la energía, disciplina y pasión de jóvenes atletas durante sus sesiones de entrenamiento.",
+    highlight: true,
+  },
   {
     title: "LICEY",
     subtitle: "Contenido Digital Deportivo",
@@ -108,23 +137,12 @@ const productionProjects = [
     description:
       "Desarrollo de contenido audiovisual enfocado en resaltar la experiencia y el rendimiento de los rifles PCP, mostrando su funcionamiento, precisión y calidad en escenarios reales de uso.",
   },
-  {
-    title: "DV7",
-    subtitle: "Cobertura Especial — Visita de David Villa",
-    description:
-      "Producción audiovisual integral realizada durante dos días para la cobertura de la visita de David Villa, fundador y líder de la Academia de Soccer DV7, campeón del mundo con España.",
-  },
 ];
 
 type Tab = "branding" | "fotografia" | "produccion";
 
 export default function PortafolioPage() {
   const [activeTab, setActiveTab] = useState<Tab>("branding");
-  const [expandedProject, setExpandedProject] = useState<string | null>(null);
-  const [activeVideo, setActiveVideo] = useState<{
-    src: string;
-    title: string;
-  } | null>(null);
 
   const tabs: { key: Tab; label: string }[] = [
     { key: "branding", label: "Branding" },
@@ -133,325 +151,225 @@ export default function PortafolioPage() {
   ];
 
   return (
-    <>
-      <main className="pt-20">
-        {/* Header */}
-        <section className="py-20 lg:py-28 bg-linear-to-b from-neutral-100 to-white">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease }}
-              className="max-w-3xl"
-            >
-              <span className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-[0.2em]">
-                <span className="w-8 h-px bg-accent" />
-                Portafolio
-              </span>
-              <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-neutral-900 tracking-tight">
-                Nuestro trabajo habla{" "}
-                <span className="text-drama text-primary">por nosotros.</span>
-              </h1>
-              <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
-                Cada proyecto es una oportunidad para crear algo extraordinario.
-                Aquí algunos de nuestros trabajos recientes.
-              </p>
-            </motion.div>
+    <main className="pt-20">
+      {/* Header */}
+      <section className="py-20 lg:py-28 bg-linear-to-b from-neutral-100 to-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease }}
+            className="max-w-3xl"
+          >
+            <span className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-[0.2em]">
+              <span className="w-8 h-px bg-accent" />
+              Portafolio
+            </span>
+            <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-neutral-900 tracking-tight">
+              Nuestro trabajo habla{" "}
+              <span className="text-drama text-primary">por nosotros.</span>
+            </h1>
+            <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
+              Cada proyecto es una oportunidad para crear algo extraordinario.
+              Aquí algunos de nuestros trabajos recientes.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tabs */}
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-wrap gap-2 mb-14">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  activeTab === tab.key
+                    ? "bg-primary text-white shadow-md shadow-primary/20"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
-        </section>
 
-        {/* Tabs */}
-        <section className="py-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="flex flex-wrap gap-2 mb-14">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => {
-                    setActiveTab(tab.key);
-                    setExpandedProject(null);
-                  }}
-                  className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
-                    activeTab === tab.key
-                      ? "bg-primary text-white shadow-md shadow-primary/20"
-                      : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
-            <AnimatePresence mode="wait">
-              {/* ─── BRANDING TAB ─── */}
-              {activeTab === "branding" && (
-                <motion.div
-                  key="branding"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-20"
-                >
-                  {brandingProjects.map((project) => (
-                    <div key={project.slug}>
-                      {/* Cover + Info */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-10">
-                        <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-xl">
-                          <Image
-                            src={project.cover}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            quality={100}
-                            className="object-cover"
-                          />
-                        </div>
-                        <div>
-                          <span className="inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-xs font-semibold text-accent mb-4">
-                            Branding
-                          </span>
-                          <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 tracking-tight">
-                            {project.title}
-                          </h2>
-                          <p className="text-sm text-neutral-500 mt-1 mb-4">
-                            {project.subtitle}
-                          </p>
-                          <p className="text-neutral-600 leading-relaxed mb-4">
-                            {project.description}
-                          </p>
-                          <div className="bg-neutral-100 rounded-xl p-5">
-                            <h4 className="text-sm font-bold text-neutral-900 mb-2">
-                              Reto
-                            </h4>
-                            <p className="text-sm text-neutral-600 leading-relaxed">
-                              {project.challenge}
-                            </p>
-                          </div>
-                        </div>
+          <AnimatePresence mode="wait">
+            {/* ─── BRANDING TAB ─── */}
+            {activeTab === "branding" && (
+              <motion.div
+                key="branding"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-20"
+              >
+                {brandingProjects.map((project) => (
+                  <div key={project.slug}>
+                    {/* Cover + Info */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-10">
+                      <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-xl bg-neutral-100">
+                        <Image
+                          src={project.cover}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          quality={100}
+                          className="object-contain p-4"
+                        />
                       </div>
-
-                      {/* Gallery */}
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                        {project.images.map((img, i) => (
-                          <motion.div
-                            key={img}
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                              duration: 0.4,
-                              ease,
-                              delay: i * 0.05,
-                            }}
-                            className="group relative aspect-square rounded-xl overflow-hidden"
-                          >
-                            <Image
-                              src={img}
-                              alt={`${project.title} - ${i + 1}`}
-                              fill
-                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                              quality={100}
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              )}
-
-              {/* ─── PHOTOGRAPHY TAB ─── */}
-              {activeTab === "fotografia" && (
-                <motion.div
-                  key="fotografia"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-16"
-                >
-                  {photographyProjects.map((project) => (
-                    <div key={project.slug}>
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
-                        <h3 className="text-2xl font-bold text-neutral-900">
+                      <div>
+                        <span className="inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-xs font-semibold text-accent mb-4">
+                          Branding
+                        </span>
+                        <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 tracking-tight">
                           {project.title}
-                        </h3>
-                        <div className="flex-1 h-px bg-neutral-200" />
-                      </div>
-
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                        {/* Cover first */}
-                        <motion.div
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.4, ease }}
-                          className="group relative aspect-4/3 rounded-xl overflow-hidden col-span-2 row-span-2"
-                        >
-                          <Image
-                            src={project.cover}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                            quality={100}
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </motion.div>
-                        {/* Other photos */}
-                        {project.images.map((img, i) => (
-                          <motion.div
-                            key={img}
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                              duration: 0.4,
-                              ease,
-                              delay: (i + 1) * 0.06,
-                            }}
-                            className="group relative aspect-4/3 rounded-xl overflow-hidden"
-                          >
-                            <Image
-                              src={img}
-                              alt={`${project.title} - ${i + 1}`}
-                              fill
-                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                              quality={100}
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              )}
-
-              {/* ─── PRODUCTION TAB ─── */}
-              {activeTab === "produccion" && (
-                <motion.div
-                  key="produccion"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-10"
-                >
-                  {/* Video showcase from home */}
-                  <div className="rounded-3xl overflow-hidden bg-neutral-950 p-8 lg:p-12 mb-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                      <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">
-                        Videografía
-                      </span>
-                      <div className="flex-1 h-px bg-white/10" />
-                    </div>
-                    <p className="text-white/50 text-sm max-w-2xl mb-8">
-                      Contenido en video de alto impacto para marcas que buscan
-                      destacar y conectar con su audiencia.
-                    </p>
-
-                    {/* Video preview - auto-plays muted as thumbnail */}
-                    <div
-                      className="relative aspect-video rounded-2xl overflow-hidden cursor-pointer group"
-                      onClick={() =>
-                        setActiveVideo({
-                          src: "/videos/VIDEO07.MP4",
-                          title: "Reel Visual Tinez",
-                        })
-                      }
-                    >
-                      <video
-                        src="/videos/VIDEO07.MP4"
-                        muted
-                        autoPlay
-                        playsInline
-                        loop
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                        <div className="w-20 h-20 rounded-full bg-white/15 border-2 border-white/40 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Play
-                            size={28}
-                            className="text-white fill-white ml-1"
-                          />
+                        </h2>
+                        <p className="text-sm text-neutral-500 mt-1 mb-4">
+                          {project.subtitle}
+                        </p>
+                        <p className="text-neutral-600 leading-relaxed mb-4">
+                          {project.description}
+                        </p>
+                        <div className="bg-neutral-100 rounded-xl p-5">
+                          <h4 className="text-sm font-bold text-neutral-900 mb-2">
+                            Reto
+                          </h4>
+                          <p className="text-sm text-neutral-600 leading-relaxed">
+                            {project.challenge}
+                          </p>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Reels showcase - 4 vertical videos side by side */}
-                  <div className="rounded-3xl overflow-hidden bg-neutral-100 p-6 lg:p-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                      <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">
-                        Reels
-                      </span>
-                      <div className="flex-1 h-px bg-neutral-300" />
-                    </div>
-                    <p className="text-neutral-600 text-sm max-w-2xl mb-8">
-                      Contenido vertical de alto impacto para redes sociales.
-                    </p>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                      {[
-                        {
-                          src: "/videos/reels/VIDEO01.mp4",
-                          label: "Reel 01",
-                        },
-                        {
-                          src: "/videos/reels/VIDEO03.MP4",
-                          label: "Reel 02",
-                        },
-                        {
-                          src: "/videos/reels/VIDEO05.mp4",
-                          label: "Reel 03",
-                        },
-                        {
-                          src: "/videos/reels/VIDEO07.MP4",
-                          label: "Reel 04",
-                        },
-                      ].map((reel, i) => (
+                    {/* Gallery */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {project.images.map((img, i) => (
                         <motion.div
-                          key={reel.src}
-                          initial={{ opacity: 0, y: 20 }}
+                          key={img}
+                          initial={{ opacity: 0, y: 15 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{
                             duration: 0.4,
                             ease,
-                            delay: i * 0.1,
+                            delay: i * 0.05,
                           }}
-                          className="relative aspect-9/16 rounded-2xl overflow-hidden bg-neutral-900 shadow-lg"
+                          className="group relative aspect-square rounded-xl overflow-hidden"
                         >
-                          <video
-                            src={reel.src}
-                            muted
-                            playsInline
-                            loop
-                            className="absolute inset-0 w-full h-full object-cover"
-                            onMouseEnter={(e) =>
-                              (e.target as HTMLVideoElement).play()
-                            }
-                            onMouseLeave={(e) => {
-                              const vid = e.target as HTMLVideoElement;
-                              vid.pause();
-                              vid.currentTime = 0;
-                            }}
+                          <Image
+                            src={img}
+                            alt={`${project.title} - ${i + 1}`}
+                            fill
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            quality={100}
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
-                          <div className="absolute bottom-0 left-0 right-0 p-3 bg-linear-to-t from-black/60 to-transparent">
-                            <span className="text-xs font-semibold text-white">
-                              {reel.label}
-                            </span>
-                          </div>
                         </motion.div>
                       ))}
                     </div>
                   </div>
+                ))}
+              </motion.div>
+            )}
 
-                  {/* Production project cards */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {productionProjects.map((project, i) => (
+            {/* ─── PHOTOGRAPHY TAB ─── */}
+            {activeTab === "fotografia" && (
+              <motion.div
+                key="fotografia"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-16"
+              >
+                {photographyProjects.map((project) => (
+                  <div key={project.slug}>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                      <h3 className="text-2xl font-bold text-neutral-900">
+                        {project.title}
+                      </h3>
+                      <div className="flex-1 h-px bg-neutral-200" />
+                    </div>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {/* Cover first */}
                       <motion.div
-                        key={project.title}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, ease }}
+                        className="group relative aspect-4/3 rounded-xl overflow-hidden col-span-2 row-span-2"
+                      >
+                        <Image
+                          src={project.cover}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                          quality={100}
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </motion.div>
+                      {/* Other photos */}
+                      {project.images.map((img, i) => (
+                        <motion.div
+                          key={img}
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.4,
+                            ease,
+                            delay: (i + 1) * 0.06,
+                          }}
+                          className="group relative aspect-4/3 rounded-xl overflow-hidden"
+                        >
+                          <Image
+                            src={img}
+                            alt={`${project.title} - ${i + 1}`}
+                            fill
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            quality={100}
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            )}
+
+            {/* ─── PRODUCTION TAB ─── */}
+            {activeTab === "produccion" && (
+              <motion.div
+                key="produccion"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-10"
+              >
+                {/* DV7 Photo Gallery */}
+                <div className="rounded-3xl overflow-hidden bg-neutral-950 p-6 lg:p-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                    <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">
+                      DV7 Academy
+                    </span>
+                    <div className="flex-1 h-px bg-white/10" />
+                  </div>
+                  <p className="text-white/50 text-sm max-w-2xl mb-8">
+                    Cobertura fotográfica de la academia de fútbol DV7. Jóvenes
+                    atletas en acción durante sesiones de entrenamiento.
+                  </p>
+
+                  {/* Featured 4 large */}
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
+                    {dv7Photos.slice(0, 4).map((src, i) => (
+                      <motion.div
+                        key={src}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
@@ -459,35 +377,152 @@ export default function PortafolioPage() {
                           ease,
                           delay: i * 0.08,
                         }}
-                        className="group p-8 rounded-2xl bg-neutral-100 hover:bg-primary/5 border border-neutral-200/80 hover:border-primary/20 transition-all duration-500"
+                        className="relative aspect-3/4 rounded-2xl overflow-hidden"
                       >
-                        <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-4">
-                          Producción
-                        </span>
-                        <h3 className="text-2xl font-bold text-neutral-900 mb-1">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm text-primary font-medium mb-4">
-                          {project.subtitle}
-                        </p>
-                        <p className="text-sm text-neutral-600 leading-relaxed">
-                          {project.description}
-                        </p>
+                        <Image
+                          src={src}
+                          alt={`DV7 Academy - ${i + 1}`}
+                          fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 25vw"
+                          quality={100}
+                          className="object-cover hover:scale-105 transition-transform duration-500"
+                        />
                       </motion.div>
                     ))}
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </section>
-      </main>
 
-      <VideoModal
-        videoSrc={activeVideo?.src ?? null}
-        title={activeVideo?.title ?? ""}
-        onClose={() => setActiveVideo(null)}
-      />
-    </>
+                  {/* Rest of photos in smaller grid */}
+                  <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2">
+                    {dv7Photos.slice(4).map((src, i) => (
+                      <motion.div
+                        key={src}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.3,
+                          ease,
+                          delay: (i + 4) * 0.04,
+                        }}
+                        className="relative aspect-square rounded-xl overflow-hidden"
+                      >
+                        <Image
+                          src={src}
+                          alt={`DV7 Academy - ${i + 5}`}
+                          fill
+                          sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
+                          quality={100}
+                          className="object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Reels showcase */}
+                <div className="rounded-3xl overflow-hidden bg-neutral-100 p-6 lg:p-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">
+                      Reels
+                    </span>
+                    <div className="flex-1 h-px bg-neutral-300" />
+                  </div>
+                  <p className="text-neutral-600 text-sm max-w-2xl mb-8">
+                    Contenido vertical de alto impacto para redes sociales.
+                  </p>
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    {[
+                      {
+                        src: "/videos/reels/VIDEO01.mp4",
+                        label: "Reel 01",
+                      },
+                      {
+                        src: "/videos/reels/VIDEO03.MP4",
+                        label: "Reel 02",
+                      },
+                      {
+                        src: "/videos/reels/VIDEO05.mp4",
+                        label: "Reel 03",
+                      },
+                      {
+                        src: "/videos/reels/VIDEO07.MP4",
+                        label: "Reel 04",
+                      },
+                    ].map((reel, i) => (
+                      <motion.div
+                        key={reel.src}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          ease,
+                          delay: i * 0.1,
+                        }}
+                        className="relative aspect-9/16 rounded-2xl overflow-hidden bg-neutral-900 shadow-lg"
+                      >
+                        <video
+                          src={reel.src}
+                          muted
+                          playsInline
+                          loop
+                          className="absolute inset-0 w-full h-full object-cover"
+                          onMouseEnter={(e) =>
+                            (e.target as HTMLVideoElement).play()
+                          }
+                          onMouseLeave={(e) => {
+                            const vid = e.target as HTMLVideoElement;
+                            vid.pause();
+                            vid.currentTime = 0;
+                          }}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 p-3 bg-linear-to-t from-black/60 to-transparent">
+                          <span className="text-xs font-semibold text-white">
+                            {reel.label}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Production project cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {productionProjects.map((project, i) => (
+                    <motion.div
+                      key={project.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        ease,
+                        delay: i * 0.08,
+                      }}
+                      className={`group p-8 rounded-2xl border transition-all duration-500 ${
+                        project.highlight
+                          ? "bg-primary/5 border-primary/20"
+                          : "bg-neutral-100 hover:bg-primary/5 border-neutral-200/80 hover:border-primary/20"
+                      }`}
+                    >
+                      <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-4">
+                        Producción
+                      </span>
+                      <h3 className="text-2xl font-bold text-neutral-900 mb-1">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-primary font-medium mb-4">
+                        {project.subtitle}
+                      </p>
+                      <p className="text-sm text-neutral-600 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+    </main>
   );
 }

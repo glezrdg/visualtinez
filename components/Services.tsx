@@ -12,7 +12,7 @@ const services = [
     number: "01",
     icon: Camera,
     title: "Fotografía",
-    image: "/images/portfolio/fotografia/llaves-arias/DSC_0054.jpg",
+    image: "/images/servicios/Fotografia.jpg",
     description:
       "Sesiones fotográficas profesionales para tu marca: producto, corporativas, lifestyle y contenido para redes.",
   },
@@ -20,7 +20,7 @@ const services = [
     number: "02",
     icon: Video,
     title: "Videografía",
-    image: "/images/fundador-camara.jpg",
+    image: "/images/servicios/Produccion.PNG",
     description:
       "Producción audiovisual completa. Comerciales, contenido para redes y videos corporativos.",
   },
@@ -28,7 +28,7 @@ const services = [
     number: "03",
     icon: Share2,
     title: "Gestión de Redes",
-    image: "/images/equipo-trabajo.jpg",
+    image: "/images/miembro-laptop.png",
     description:
       "Manejo integral de tus redes sociales con estrategia, contenido y comunidad. No solo publicamos, construimos.",
   },
