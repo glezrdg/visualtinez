@@ -50,6 +50,38 @@ const brandingProjects = [
 /* ─── PHOTOGRAPHY PROJECTS ─── */
 const photographyProjects = [
   {
+    slug: "dv7",
+    title: "DV7 Academy",
+    cover: "/images/portfolio/produccion/dv7/P1490628.jpg",
+    images: [
+      "/images/portfolio/produccion/dv7/P1500532.jpg",
+      "/images/portfolio/produccion/dv7/P1480805.jpg",
+      "/images/portfolio/produccion/dv7/P1500059.jpg",
+      "/images/portfolio/produccion/dv7/P1490038.jpg",
+      "/images/portfolio/produccion/dv7/P1490356.jpg",
+      "/images/portfolio/produccion/dv7/P1490377.jpg",
+      "/images/portfolio/produccion/dv7/P1500311.jpg",
+      "/images/portfolio/produccion/dv7/P1500463.jpg",
+      "/images/portfolio/produccion/dv7/P1500567.jpg",
+      "/images/portfolio/produccion/dv7/P1480808.jpg",
+      "/images/portfolio/produccion/dv7/P1480810.jpg",
+      "/images/portfolio/produccion/dv7/P1480829.jpg",
+      "/images/portfolio/produccion/dv7/P1490629.jpg",
+      "/images/portfolio/produccion/dv7/P1490645.jpg",
+      "/images/portfolio/produccion/dv7/P1490651.jpg",
+      "/images/portfolio/produccion/dv7/P1490684.jpg",
+      "/images/portfolio/produccion/dv7/P1500147.jpg",
+      "/images/portfolio/produccion/dv7/P1500485.jpg",
+      "/images/portfolio/produccion/dv7/P1500546.jpg",
+    ],
+  },
+  {
+    slug: "licey",
+    title: "Tigres del Licey",
+    cover: "/images/portfolio/produccion/licey/Portada.jpeg",
+    images: [],
+  },
+  {
     slug: "llaves-arias",
     title: "Llaves Arias",
     cover: "/images/portfolio/fotografia/llaves-arias/DSC_0054.jpg",
@@ -86,7 +118,7 @@ const photographyProjects = [
   },
 ];
 
-/* ─── PRODUCTION PROJECTS (full format like branding) ─── */
+/* ─── PRODUCTION PROJECTS (video-based, full format) ─── */
 const productionFullProjects: {
   slug: string;
   title: string;
@@ -94,40 +126,8 @@ const productionFullProjects: {
   description: string;
   challenge: string;
   cover: string;
-  images?: string[];
-  videos?: { src: string; label: string }[];
+  videos: { src: string; label: string }[];
 }[] = [
-  {
-    slug: "dv7",
-    title: "DV7 Academy",
-    subtitle: "Cobertura Deportiva — Academia de Fútbol",
-    description:
-      "Producción fotográfica integral realizada para la academia de fútbol DV7. Capturamos la energía, disciplina y pasión de jóvenes atletas durante sus sesiones de entrenamiento.",
-    challenge:
-      "Capturar la intensidad y emoción de las sesiones de entrenamiento de jóvenes porteros, transmitiendo la disciplina y profesionalismo de la academia DV7 a través de imágenes dinámicas y auténticas.",
-    cover: "/images/portfolio/produccion/dv7/P1490628.jpg",
-    images: [
-      "/images/portfolio/produccion/dv7/P1500532.jpg",
-      "/images/portfolio/produccion/dv7/P1480805.jpg",
-      "/images/portfolio/produccion/dv7/P1500059.jpg",
-      "/images/portfolio/produccion/dv7/P1490038.jpg",
-      "/images/portfolio/produccion/dv7/P1490356.jpg",
-      "/images/portfolio/produccion/dv7/P1490377.jpg",
-      "/images/portfolio/produccion/dv7/P1500311.jpg",
-      "/images/portfolio/produccion/dv7/P1500463.jpg",
-      "/images/portfolio/produccion/dv7/P1500567.jpg",
-      "/images/portfolio/produccion/dv7/P1480808.jpg",
-      "/images/portfolio/produccion/dv7/P1480810.jpg",
-      "/images/portfolio/produccion/dv7/P1480829.jpg",
-      "/images/portfolio/produccion/dv7/P1490629.jpg",
-      "/images/portfolio/produccion/dv7/P1490645.jpg",
-      "/images/portfolio/produccion/dv7/P1490651.jpg",
-      "/images/portfolio/produccion/dv7/P1490684.jpg",
-      "/images/portfolio/produccion/dv7/P1500147.jpg",
-      "/images/portfolio/produccion/dv7/P1500485.jpg",
-      "/images/portfolio/produccion/dv7/P1500546.jpg",
-    ],
-  },
   {
     slug: "licey",
     title: "Tigres del Licey",
@@ -414,38 +414,9 @@ export default function PortafolioPage() {
                       </div>
                     </div>
 
-                    {/* Photo Gallery */}
-                    {project.images && (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                        {project.images.map((img, i) => (
-                          <motion.div
-                            key={img}
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                              duration: 0.4,
-                              ease,
-                              delay: i * 0.05,
-                            }}
-                            className="group relative aspect-square rounded-xl overflow-hidden"
-                          >
-                            <Image
-                              src={img}
-                              alt={`${project.title} - ${i + 1}`}
-                              fill
-                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                              quality={100}
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                          </motion.div>
-                        ))}
-                      </div>
-                    )}
-
                     {/* Video Gallery */}
-                    {project.videos && (
-                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                        {project.videos.map((vid, i) => (
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      {project.videos.map((vid, i) => (
                           <motion.div
                             key={vid.src}
                             initial={{ opacity: 0, y: 15 }}
@@ -480,7 +451,6 @@ export default function PortafolioPage() {
                           </motion.div>
                         ))}
                       </div>
-                    )}
                   </div>
                 ))}
 
