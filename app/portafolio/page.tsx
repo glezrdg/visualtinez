@@ -86,39 +86,43 @@ const photographyProjects = [
   },
 ];
 
-/* ─── DV7 PHOTOS ─── */
-const dv7Photos = [
-  "/images/portfolio/produccion/dv7/P1490628.jpg",
-  "/images/portfolio/produccion/dv7/P1500532.jpg",
-  "/images/portfolio/produccion/dv7/P1480805.jpg",
-  "/images/portfolio/produccion/dv7/P1500059.jpg",
-  "/images/portfolio/produccion/dv7/P1490038.jpg",
-  "/images/portfolio/produccion/dv7/P1490356.jpg",
-  "/images/portfolio/produccion/dv7/P1490377.jpg",
-  "/images/portfolio/produccion/dv7/P1500311.jpg",
-  "/images/portfolio/produccion/dv7/P1500463.jpg",
-  "/images/portfolio/produccion/dv7/P1500567.jpg",
-  "/images/portfolio/produccion/dv7/P1480808.jpg",
-  "/images/portfolio/produccion/dv7/P1480810.jpg",
-  "/images/portfolio/produccion/dv7/P1480829.jpg",
-  "/images/portfolio/produccion/dv7/P1490629.jpg",
-  "/images/portfolio/produccion/dv7/P1490645.jpg",
-  "/images/portfolio/produccion/dv7/P1490651.jpg",
-  "/images/portfolio/produccion/dv7/P1490684.jpg",
-  "/images/portfolio/produccion/dv7/P1500147.jpg",
-  "/images/portfolio/produccion/dv7/P1500485.jpg",
-  "/images/portfolio/produccion/dv7/P1500546.jpg",
-];
-
-/* ─── PRODUCTION PROJECTS ─── */
-const productionProjects = [
+/* ─── PRODUCTION PROJECTS (full format like branding) ─── */
+const productionFullProjects = [
   {
+    slug: "dv7",
     title: "DV7 Academy",
     subtitle: "Cobertura Deportiva — Academia de Fútbol",
     description:
       "Producción fotográfica integral realizada para la academia de fútbol DV7. Capturamos la energía, disciplina y pasión de jóvenes atletas durante sus sesiones de entrenamiento.",
-    highlight: true,
+    challenge:
+      "Capturar la intensidad y emoción de las sesiones de entrenamiento de jóvenes porteros, transmitiendo la disciplina y profesionalismo de la academia DV7 a través de imágenes dinámicas y auténticas.",
+    cover: "/images/portfolio/produccion/dv7/P1490628.jpg",
+    images: [
+      "/images/portfolio/produccion/dv7/P1500532.jpg",
+      "/images/portfolio/produccion/dv7/P1480805.jpg",
+      "/images/portfolio/produccion/dv7/P1500059.jpg",
+      "/images/portfolio/produccion/dv7/P1490038.jpg",
+      "/images/portfolio/produccion/dv7/P1490356.jpg",
+      "/images/portfolio/produccion/dv7/P1490377.jpg",
+      "/images/portfolio/produccion/dv7/P1500311.jpg",
+      "/images/portfolio/produccion/dv7/P1500463.jpg",
+      "/images/portfolio/produccion/dv7/P1500567.jpg",
+      "/images/portfolio/produccion/dv7/P1480808.jpg",
+      "/images/portfolio/produccion/dv7/P1480810.jpg",
+      "/images/portfolio/produccion/dv7/P1480829.jpg",
+      "/images/portfolio/produccion/dv7/P1490629.jpg",
+      "/images/portfolio/produccion/dv7/P1490645.jpg",
+      "/images/portfolio/produccion/dv7/P1490651.jpg",
+      "/images/portfolio/produccion/dv7/P1490684.jpg",
+      "/images/portfolio/produccion/dv7/P1500147.jpg",
+      "/images/portfolio/produccion/dv7/P1500485.jpg",
+      "/images/portfolio/produccion/dv7/P1500546.jpg",
+    ],
   },
+];
+
+/* ─── PRODUCTION PROJECTS (text-only cards, no photos yet) ─── */
+const productionCardProjects = [
   {
     title: "LICEY",
     subtitle: "Contenido Digital Deportivo",
@@ -349,74 +353,74 @@ export default function PortafolioPage() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="space-y-10"
+                className="space-y-20"
               >
-                {/* DV7 Photo Gallery */}
-                <div className="rounded-3xl overflow-hidden bg-neutral-950 p-6 lg:p-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                    <span className="text-xs font-bold text-accent uppercase tracking-[0.2em]">
-                      DV7 Academy
-                    </span>
-                    <div className="flex-1 h-px bg-white/10" />
-                  </div>
-                  <p className="text-white/50 text-sm max-w-2xl mb-8">
-                    Cobertura fotográfica de la academia de fútbol DV7. Jóvenes
-                    atletas en acción durante sesiones de entrenamiento.
-                  </p>
-
-                  {/* Featured 4 large */}
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
-                    {dv7Photos.slice(0, 4).map((src, i) => (
-                      <motion.div
-                        key={src}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                          duration: 0.4,
-                          ease,
-                          delay: i * 0.08,
-                        }}
-                        className="relative aspect-3/4 rounded-2xl overflow-hidden"
-                      >
+                {/* Full projects (same format as branding) */}
+                {productionFullProjects.map((project) => (
+                  <div key={project.slug}>
+                    {/* Cover + Info */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-10">
+                      <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-xl">
                         <Image
-                          src={src}
-                          alt={`DV7 Academy - ${i + 1}`}
+                          src={project.cover}
+                          alt={project.title}
                           fill
-                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 25vw"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                           quality={100}
-                          className="object-cover hover:scale-105 transition-transform duration-500"
+                          className="object-cover"
                         />
-                      </motion.div>
-                    ))}
-                  </div>
+                      </div>
+                      <div>
+                        <span className="inline-flex items-center rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-semibold text-primary mb-4">
+                          Producción
+                        </span>
+                        <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 tracking-tight">
+                          {project.title}
+                        </h2>
+                        <p className="text-sm text-neutral-500 mt-1 mb-4">
+                          {project.subtitle}
+                        </p>
+                        <p className="text-neutral-600 leading-relaxed mb-4">
+                          {project.description}
+                        </p>
+                        <div className="bg-neutral-100 rounded-xl p-5">
+                          <h4 className="text-sm font-bold text-neutral-900 mb-2">
+                            Reto
+                          </h4>
+                          <p className="text-sm text-neutral-600 leading-relaxed">
+                            {project.challenge}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
 
-                  {/* Rest of photos in smaller grid */}
-                  <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2">
-                    {dv7Photos.slice(4).map((src, i) => (
-                      <motion.div
-                        key={src}
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                          duration: 0.3,
-                          ease,
-                          delay: (i + 4) * 0.04,
-                        }}
-                        className="relative aspect-square rounded-xl overflow-hidden"
-                      >
-                        <Image
-                          src={src}
-                          alt={`DV7 Academy - ${i + 5}`}
-                          fill
-                          sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
-                          quality={100}
-                          className="object-cover hover:scale-105 transition-transform duration-500"
-                        />
-                      </motion.div>
-                    ))}
+                    {/* Gallery */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                      {project.images.map((img, i) => (
+                        <motion.div
+                          key={img}
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.4,
+                            ease,
+                            delay: i * 0.05,
+                          }}
+                          className="group relative aspect-square rounded-xl overflow-hidden"
+                        >
+                          <Image
+                            src={img}
+                            alt={`${project.title} - ${i + 1}`}
+                            fill
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            quality={100}
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                ))}
 
                 {/* Reels showcase */}
                 <div className="rounded-3xl overflow-hidden bg-neutral-100 p-6 lg:p-10">
@@ -485,39 +489,46 @@ export default function PortafolioPage() {
                   </div>
                 </div>
 
-                {/* Production project cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {productionProjects.map((project, i) => (
-                    <motion.div
-                      key={project.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 0.4,
-                        ease,
-                        delay: i * 0.08,
-                      }}
-                      className={`group p-8 rounded-2xl border transition-all duration-500 ${
-                        project.highlight
-                          ? "bg-primary/5 border-primary/20"
-                          : "bg-neutral-100 hover:bg-primary/5 border-neutral-200/80 hover:border-primary/20"
-                      }`}
-                    >
-                      <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-4">
-                        Producción
+                {/* Other production project cards (text only, no photos yet) */}
+                {productionCardProjects.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                      <span className="text-xs font-bold text-primary uppercase tracking-[0.2em]">
+                        Más proyectos
                       </span>
-                      <h3 className="text-2xl font-bold text-neutral-900 mb-1">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-primary font-medium mb-4">
-                        {project.subtitle}
-                      </p>
-                      <p className="text-sm text-neutral-600 leading-relaxed">
-                        {project.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
+                      <div className="flex-1 h-px bg-neutral-200" />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {productionCardProjects.map((project, i) => (
+                        <motion.div
+                          key={project.title}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.4,
+                            ease,
+                            delay: i * 0.08,
+                          }}
+                          className="group p-8 rounded-2xl bg-neutral-100 hover:bg-primary/5 border border-neutral-200/80 hover:border-primary/20 transition-all duration-500"
+                        >
+                          <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-4">
+                            Producción
+                          </span>
+                          <h3 className="text-2xl font-bold text-neutral-900 mb-1">
+                            {project.title}
+                          </h3>
+                          <p className="text-sm text-primary font-medium mb-4">
+                            {project.subtitle}
+                          </p>
+                          <p className="text-sm text-neutral-600 leading-relaxed">
+                            {project.description}
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
