@@ -87,7 +87,16 @@ const photographyProjects = [
 ];
 
 /* ─── PRODUCTION PROJECTS (full format like branding) ─── */
-const productionFullProjects = [
+const productionFullProjects: {
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  challenge: string;
+  cover: string;
+  images?: string[];
+  videos?: { src: string; label: string }[];
+}[] = [
   {
     slug: "dv7",
     title: "DV7 Academy",
@@ -119,16 +128,27 @@ const productionFullProjects = [
       "/images/portfolio/produccion/dv7/P1500546.jpg",
     ],
   },
+  {
+    slug: "licey",
+    title: "Tigres del Licey",
+    subtitle: "Contenido Digital Deportivo",
+    description:
+      "Desarrollo de contenido audiovisual para redes sociales y plataformas digitales del equipo, enfocado en fortalecer la conexión con la fanaticada y elevar la calidad visual de su comunicación.",
+    challenge:
+      "Transmitir la pasión y tradición de los Tigres del Licey a través de contenido audiovisual que conecte con la fanaticada, capturando la energía del estadio, los entrenamientos y la esencia del equipo.",
+    cover: "/images/portfolio/produccion/licey/Portada.jpeg",
+    videos: [
+      { src: "/videos/portfolio/licey/Tigres-del-Licey.mp4", label: "Tigres del Licey" },
+      { src: "/videos/portfolio/licey/Entrenamiento-1.mp4", label: "Entrenamiento 1" },
+      { src: "/videos/portfolio/licey/Entrenamiento-4.mp4", label: "Entrenamiento 2" },
+      { src: "/videos/portfolio/licey/Juego.mp4", label: "Juego" },
+      { src: "/videos/portfolio/licey/Video-Entr.mp4", label: "Entrenamiento 3" },
+    ],
+  },
 ];
 
 /* ─── PRODUCTION PROJECTS (text-only cards, no photos yet) ─── */
 const productionCardProjects = [
-  {
-    title: "LICEY",
-    subtitle: "Contenido Digital Deportivo",
-    description:
-      "Desarrollo de contenido audiovisual para redes sociales y plataformas digitales del equipo, enfocado en fortalecer la conexión con la fanaticada y elevar la calidad visual de su comunicación.",
-  },
   {
     title: "University Soccer",
     subtitle: "Narrativa y Producción Audiovisual Deportiva",
@@ -394,31 +414,73 @@ export default function PortafolioPage() {
                       </div>
                     </div>
 
-                    {/* Gallery */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                      {project.images.map((img, i) => (
-                        <motion.div
-                          key={img}
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{
-                            duration: 0.4,
-                            ease,
-                            delay: i * 0.05,
-                          }}
-                          className="group relative aspect-square rounded-xl overflow-hidden"
-                        >
-                          <Image
-                            src={img}
-                            alt={`${project.title} - ${i + 1}`}
-                            fill
-                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                            quality={100}
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </motion.div>
-                      ))}
-                    </div>
+                    {/* Photo Gallery */}
+                    {project.images && (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {project.images.map((img, i) => (
+                          <motion.div
+                            key={img}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.4,
+                              ease,
+                              delay: i * 0.05,
+                            }}
+                            className="group relative aspect-square rounded-xl overflow-hidden"
+                          >
+                            <Image
+                              src={img}
+                              alt={`${project.title} - ${i + 1}`}
+                              fill
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                              quality={100}
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Video Gallery */}
+                    {project.videos && (
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                        {project.videos.map((vid, i) => (
+                          <motion.div
+                            key={vid.src}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.4,
+                              ease,
+                              delay: i * 0.08,
+                            }}
+                            className="relative aspect-9/16 rounded-2xl overflow-hidden bg-neutral-900 shadow-lg"
+                          >
+                            <video
+                              src={vid.src}
+                              muted
+                              playsInline
+                              loop
+                              className="absolute inset-0 w-full h-full object-cover"
+                              onMouseEnter={(e) =>
+                                (e.target as HTMLVideoElement).play()
+                              }
+                              onMouseLeave={(e) => {
+                                const v = e.target as HTMLVideoElement;
+                                v.pause();
+                                v.currentTime = 0;
+                              }}
+                            />
+                            <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/70 to-transparent">
+                              <span className="text-sm font-semibold text-white">
+                                {vid.label}
+                              </span>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
 
